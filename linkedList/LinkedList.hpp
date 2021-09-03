@@ -116,10 +116,34 @@ bool LinkedList<T>::removeBack()
 	Node<T>* secondintoLast = nullptr;
 	bool isRemoved = false;
 
-	/** TODO
-		Fix this method
-	*/
+	//if LL is empty you cant remove, so if its not empty, enter this if
+	if(!isEmpty()){
+		//set both last and secondLast to point to front
+		lastNode = m_front;
+		secondintoLast = m_front;
 
+		//These two while loops iterate through the LL until they reach the end
+
+		//When lastNode.getNext does not equal null, set it to get next to loop through LL
+		while(lastNode->getNext() != nullptr)
+		{
+			lastNode = lastNode->getNext();
+		}
+		//When secondintoLast.getNext does not equal lastNode, set it to getNext
+		while(secondintoLast->getNext() != lastNode)
+		{
+			secondintoLast = secondintoLast->getNext();
+		}
+		//once the end of LL is reached,
+			//secondLast.setNext is point to null
+			//then delete last
+			//reduce size by 1
+			//set isRemoved to true
+		secondintoLast->setNext(nullptr);
+		delete lastNode;
+		m_size--;
+		isRemoved = true;
+	}
 	return(isRemoved);
 }
 
