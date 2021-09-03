@@ -32,6 +32,7 @@ int LinkedList<T>::size() const
 	/** TODO
 		Fix this method
 	*/
+	//instead of returning 0, just return size
 	return(m_size);
 }
 
